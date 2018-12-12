@@ -62,6 +62,16 @@ ______                            _              _                              
 
 		<meta http-equiv="x-pjax-version" content="{{ elixir('assets/css/styles.css') }}">
 
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?c603edeb4406f4968468c1649a006787";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
 	</head>
 	<body id="body" class="{{ route_class() }}">
 
@@ -124,7 +134,7 @@ ______                            _              _                              
 		</script>
         @endif
 
-        
+
 <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript" charset="utf-8"></script>
 
 @if (!empty($topic)) 

@@ -65,7 +65,6 @@
 
 <link rel="stylesheet" href="{{ cdn(elixir('assets/css/editor.css')) }}">
 <script src="{{ cdn(elixir('assets/js/editor.js')) }}"></script>
-
 <script type="text/javascript">
 
     $(document).ready(function()
@@ -105,6 +104,8 @@
             $('.category-'+current_cid).fadeIn();
         });
 
+        
+
         var simplemde = new SimpleMDE({
             spellChecker: false,
             autosave: {
@@ -141,6 +142,15 @@
                     title: "发布文章",
                 }
             ],
+            previewRender: function(plainText) {
+              var preview = document.getElementsByClassName("editor-preview-side")[0];
+              //var reg = new RegExp("\\\\","g");
+             //plainText = plainText.replace(reg,"\\\\");
+              preview.innerHTML = this.parent.markdown(plainText);
+              preview.setAttribute('id','editor-preview');
+              MathJax.Hub.Queue(["Typeset",MathJax.Hub,"editor-preview"]);
+              return preview.innerHTML;
+            },
         });
 
         inlineAttachment.editors.codemirror4.attach(simplemde.codemirror, {
@@ -164,7 +174,7 @@
                     this.settings.onFileUploaded.call(this, filename);
                 }
                 return false;
-            }
+            },
         });
     });
 </script>

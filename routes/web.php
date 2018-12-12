@@ -12,6 +12,11 @@ Route::get('/composer', 'PagesController@composer')->name('composer');
 
 Route::get('/roles/{id}', 'RolesController@show')->name('roles.show');
 
+# ------------------ Wechat ------------------------
+
+Route::get('/wechat','WechatController@index')->name('wechat');
+Route::get('/jssdkconfig','WechatController@getJSSDKConfig')->name('jssdkconfig');
+
 # ------------------ User stuff ------------------------
 
 Route::get('/users/drafts', 'UsersController@drafts')->name('users.drafts');
@@ -157,3 +162,4 @@ Route::get('/share_links/{id}/edit', 'ShareLinksController@edit')->name('share_l
 # ------------------ Wild Card ------------------------
 
 Route::get('{name}', 'PagesController@wildcard')->name('wildcard');
+

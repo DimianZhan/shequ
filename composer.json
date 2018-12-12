@@ -8,7 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "league/html-to-markdown": "^4.2",
-        "erusev/parsedown": "^1.6",
+        "erusev/parsedown": "^1.8@beta",
         "mews/purifier": "~2.0",
         "naux/auto-correct": "^1.0",
         "intervention/image": "^2.3",
@@ -42,7 +42,8 @@
         "nicolaslopezj/searchable": "1.*",
         "hieu-le/active": "^3.4",
         "cmgmyr/messenger": "^2.13",
-        "overtrue/laravel-filesystem-qiniu": "^0.0.1"
+        "overtrue/laravel-filesystem-qiniu": "^0.0.1",
+        "erusev/parsedown-extra": "^0.8@beta"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

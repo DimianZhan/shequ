@@ -65,11 +65,11 @@
     background-color: transparent;
     border: none;
 ">
-<a href="https://laravel-china.org/topics/3383" rel="nofollow" title="" style="">
-      <img src="https://dn-phphub.qbox.me/uploads/images/201612/09/1/qASrRyKNj0.jpg" style="width: 100%;border-radius: 0px;box-shadow: none;border: 1px solid #ffafaf;"></a>
+<a href="https://item.taobao.com/item.htm?id=569286312095" rel="nofollow" title="" style="">
+      <img src="http://shequ.dimianzhan.com/uploads/images/201811/Pixhawk4.dimianzhan.png" style="width: 100%;border-radius: 0px;box-shadow: none;border: 1px solid #afafff;"></a>
 </div>
 
-@if (Route::currentRouteName() == 'topics.index')
+@if (Route::currentRouteName() == 'topics.index' && false)
     @include('layouts.partials._resources_panel')
 @endif
 
@@ -126,7 +126,7 @@
   @endif
 @endif
 
-@if (Route::currentRouteName() == 'topics.index')
+@if (Route::currentRouteName() == 'topics.index' && false)
 
 <div class="panel panel-default corner-radius">
   <div class="panel-heading text-center">
@@ -145,7 +145,7 @@
 
 @include('layouts.partials._resources_panel')
 
-<div class="panel panel-default corner-radius" style="color:#a5a5a5">
+<!-- <div class="panel panel-default corner-radius" style="color:#a5a5a5">
   <div class="panel-body text-center">
       <a href="http://estgroupe.com/" style="color:#a5a5a5">
           <img src="https://dn-phphub.qbox.me/uploads/images/201612/12/1/iq7WQc2iuW.png" style="width: 20px;margin-right: 4px;margin-top: -4px;">
@@ -154,13 +154,13 @@
           </span>
       </a>
   </div>
-</div>
+</div> -->
 
 <div class="panel panel-default corner-radius" style="color:#a5a5a5">
   <div class="panel-body text-center">
-      <a href="{{ Auth::check() ? 'https://laravel-china.org/messages/to/1' : 'mailto:summer@yousails.com'}}" style="color:#a5a5a5">
+      <a href="{{ Auth::check() ? 'https://shequ.dimianzhan.com/messages/to/1' : 'mailto:stone@dimianzhan.com'}}" style="color:#a5a5a5">
           <span style="margin-top: 7px;display: inline-block;">
-              <i class="fa fa-heart" aria-hidden="true" style="color: rgba(232, 146, 136, 0.89);"></i> 建议反馈？请私信 Summer
+              <i class="fa fa-heart" aria-hidden="true" style="color: rgba(232, 146, 136, 0.89);"></i> 建议反馈？请私信 站长斯东
           </span>
       </a>
   </div>

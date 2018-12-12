@@ -124,7 +124,100 @@ ______                            _              _                              
 		</script>
         @endif
 
+        
+<script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript" charset="utf-8"></script>
+
+@if (!empty($topic)) 
+<script type="text/javascript">
+  var shareDesc = {!! json_encode($topic->excerpt) !!};
+</script>
+@endif
+
+@if (empty($topic)) 
+<script type="text/javascript">
+  var shareDesc = location.href;
+</script>
+@endif
+
+<script type="text/javascript">
+
+        var shareLinkUlr = location.href.split("#")[0]; // 获取当前的url 去掉 # 之后的部分
+shareLinkUlr = shareLinkUlr.replace(/\&/g, '%26'); // 将 & 替换成 %26 
+var shareImgUrl = 'http://shequ.dimianzhan.com/qingbaozhan.jpg'; // 分享的图片地址
+var shareTitle = document.title;
 
 
+// 获取 config 的内容
+function getjssdkconfig(apis,debug,json,link){
+    var xhr = new XMLHttpRequest();
+    var url = 'http://shequ.dimianzhan.com/jssdkconfig'; // 这个就是之前配置的路由
+    var data = "apis="+apis+"&debug="+debug+"&json="+json+"&url="+link; // 拼接 get 参数
+    xhr.open('GET',url+"?"+data);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState===4 && (xhr.status >=200 && xhr.status <=300)){
+            // 获取 config 之后，进行一些操作
+            // 需要进行 JSON.parse 获取对象
+            configJsSDKAndDoSomething(JSON.parse(xhr.responseText));
+        }
+    };
+    xhr.send();
+}
+// 获取config 之后进行的操作
+// 因为是使用 ajax 进行config内容，这个方法是在上面运行的
+function configJsSDKAndDoSomething(config){
+    wx.config(config);
+    wx.ready(function() {
+        // 其他的一些操作
+    //alert(JSON.stringify(config));
+    wx.onMenuShareAppMessage({ 
+        title: shareTitle, // 分享标题
+        desc: shareDesc, // 分享描述
+        link: shareLinkUlr, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: shareImgUrl, // 分享图标
+        success: function () {
+          //alert(shareImgUrl);
+        }
+    });
+
+    wx.onMenuShareTimeline({
+        title: shareTitle, // 分享标题
+        link: shareLinkUlr, // 分享链接，该链接域名必须与当前企业的可信域名一致
+        imgUrl: shareImgUrl, // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
+    });
+
+    wx.onMenuShareQQ({
+        title: shareTitle, // 分享标题
+        desc: shareDesc, // 分享描述
+        link: shareLinkUlr, // 分享链接
+        imgUrl: shareImgUrl, // 分享图标
+        success: function () {
+           // 用户确认分享后执行的回调函数
+        },
+        cancel: function () {
+           // 用户取消分享后执行的回调函数
+        }
+    });
+    
+    });
+
+    wx.error(function(error){
+        alert(error);
+    });
+
+    
+}
+// 页面加载完之后进行操作
+$(document).ready(function(){
+    // 注意这里的参数
+    // apis 使用的参数是 字符串的拼接 这个是和 php 的方法中的处理相对应的
+    getjssdkconfig("onMenuShareAppMessage,onMenuShareTimeline,onMenuShareQQ",false,false,shareLinkUlr);
+});
+</script>
 	</body>
 </html>

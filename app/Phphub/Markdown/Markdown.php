@@ -4,6 +4,7 @@ use League\HTMLToMarkdown\HtmlConverter;
 use Parsedown;
 use Purifier;
 use ParsedownExtra;
+use Phphub\Markdown\ParsedownExtreme;
 
 class Markdown
 {
@@ -13,7 +14,7 @@ class Markdown
     public function __construct()
     {
         $this->htmlParser = new HtmlConverter(['header_style' => 'atx']);
-        $this->markdownParser = new Parsedown();
+        $this->markdownParser = new ParsedownExtreme();
     }
 
     public function convertHtmlToMarkdown($html)

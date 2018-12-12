@@ -51,7 +51,8 @@
         "phpspec/phpspec": "~2.1",
         "laralib/l5scaffold": "1.0.*",
         "symfony/dom-crawler": "~3.0",
-        "symfony/css-selector": "~3.0"
+        "symfony/css-selector": "~3.0",
+        "barryvdh/laravel-debugbar": "^2.4"
     },
     "autoload": {
         "classmap": [

@@ -14,7 +14,7 @@ Route::get('/roles/{id}', 'RolesController@show')->name('roles.show');
 
 # ------------------ Wechat ------------------------
 
-Route::get('/wechat','WechatController@index')->name('wechat');
+Route::any('/wechat','WechatController@index')->name('wechat');
 Route::get('/jssdkconfig','WechatController@getJSSDKConfig')->name('jssdkconfig');
 
 # ------------------ User stuff ------------------------

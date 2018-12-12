@@ -191,6 +191,8 @@ return [
         Naux\Mail\SendCloudServiceProvider::class,
         Cmgmyr\Messenger\MessengerServiceProvider::class,
         Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
+        Overtrue\LaravelWeChat\ServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         // API
         Dingo\Api\Provider\LaravelServiceProvider::class,
@@ -256,6 +258,9 @@ return [
         'QrCode'           => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Rss'              => Thujohn\Rss\RssFacade::class,
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
+
+        'EasyWeChat' => Overtrue\LaravelWeChat\Facade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
         // API
         'Authorizer' => LucaDegasperi\OAuth2Server\Facades\Authorizer::class,

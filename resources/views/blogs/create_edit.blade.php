@@ -55,6 +55,8 @@
                       <input class="form-control" name="slug" type="text" value="{{ old('slug') ?:$blog->slug }}" maxlength="25" required>
                   </div>
                   <div class="col-sm-4 help-block">
+                      将显示在域名之后
+                      <br>
                       如：http://url.com/{别名}
                       <br>
                       仅包含字母、数字、破折号（ - ）以及下划线（ _ ）。

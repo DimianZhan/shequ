@@ -19,6 +19,7 @@
                 self.siteBootUp();
                 // Fixing popover persist problem
                 $('.popover').remove();
+                renderMathInElement(document.body);
             });
             $(document).on('pjax:complete', function() {
                 original_title = document.title;

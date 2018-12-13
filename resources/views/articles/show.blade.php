@@ -121,10 +121,11 @@
 @section('scripts')
 <script type="text/javascript">
 
-    $(document).ready(function()
+    $(document).on('ready pjax:end', function()
     {
         var $config = {
-            title               : '{{{ $topic->title }}} | from LC #laravel-china# {{ $topic->user->id != 1 ? '@summer_charlie' : '' }} {{ $topic->user->weibo_name ? '@'.$topic->user->weibo_name : '' }}',
+            url                 : location.href,
+            title               : '{{{ $topic->title }}} | from Dimianzhan社区 {{ $topic->user->id != 1 ? '@斯东Stone' : '' }} {{ $topic->user->weibo_name ? '@'.$topic->user->weibo_name : '' }}',
             wechatQrcodeTitle   : "微信扫一扫：分享", // 微信二维码提示文字
             wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
             image               : "{{ $cover ? $cover->link : $blog->cover }}",

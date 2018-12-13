@@ -502,7 +502,7 @@
     color: #999;
     background-color: #EAF2F5; }
   .editor-preview-active-side > p, .editor-preview > p, .markdown-body > p, .markdown-reply > p {
-    margin-bottom: 8px; }
+    margin-bottom: 16px; }
 
 .markdown-reply h1,
 .markdown-reply h2,
@@ -11982,7 +11982,7 @@ div#preview-box {
   width: 30px;
   height: 30px;
   margin-right: 5px;
-  margin-top: -5px;
+  margin-top: -6px;
   border: 1px solid white;
   border-radius: 50%; }
 

@@ -110,7 +110,7 @@
 
 <link rel="stylesheet" href="{{ cdn(elixir('assets/css/editor.css')) }}">
 <script src="{{ cdn(elixir('assets/js/editor.js')) }}"></script>
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js"></script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script type="text/javascript">
 
     $(document).ready(function()
@@ -133,8 +133,11 @@
         });
 
         MathJax.Hub.Config({
-          tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
-        });
+          tex2jax: {
+            inlineMath: [["$","$"],["\\(","\\)"]]},
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            skipTags: ["<br>"],
+          });
         
         //var QUEUE = MathJax.Hub.queue;
 
@@ -177,6 +180,8 @@
             ],
             previewRender: function(plainText) {
               var preview = document.getElementsByClassName("editor-preview-side")[0];
+              var reg = new RegExp("\\\\","g");
+              plainText = plainText.replace(reg,"\\\\");
               preview.innerHTML = this.parent.markdown(plainText);
               preview.setAttribute('id','editor-preview')
               MathJax.Hub.Queue(["Typeset",MathJax.Hub,"editor-preview"]);

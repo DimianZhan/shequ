@@ -110,7 +110,7 @@
 
 <link rel="stylesheet" href="{{ cdn(elixir('assets/css/editor.css')) }}">
 <script src="{{ cdn(elixir('assets/js/editor.js')) }}"></script>
-
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js"></script>
 <script type="text/javascript">
 
     $(document).ready(function()
@@ -131,6 +131,12 @@
             $('.category-hint').hide();
             $('.category-'+current_cid).fadeIn();
         });
+
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+        });
+        
+        //var QUEUE = MathJax.Hub.queue;
 
         var simplemde = new SimpleMDE({
             spellChecker: false,
@@ -169,6 +175,13 @@
                     title: "发布文章",
                 }
             ],
+            previewRender: function(plainText) {
+              var preview = document.getElementsByClassName("editor-preview-side")[0];
+              preview.innerHTML = this.parent.markdown(plainText);
+              preview.setAttribute('id','editor-preview')
+              MathJax.Hub.Queue(["Typeset",MathJax.Hub,"editor-preview"]);
+              return preview.innerHTML;
+            },
         });
 
         inlineAttachment.editors.codemirror4.attach(simplemde.codemirror, {

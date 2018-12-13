@@ -65,6 +65,7 @@
 
 <link rel="stylesheet" href="{{ cdn(elixir('assets/css/editor.css')) }}">
 <script src="{{ cdn(elixir('assets/js/editor.js')) }}"></script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js"></script>
 <script type="text/javascript">
 
     $(document).ready(function()

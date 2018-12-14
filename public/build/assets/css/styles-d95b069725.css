@@ -11021,6 +11021,7 @@ html,
 body {
   /* for sticky footer */
   height: 100%;
+  width: 100%;
   font-size: 14px;
   color: #525252;
   font-family: NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,"Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;

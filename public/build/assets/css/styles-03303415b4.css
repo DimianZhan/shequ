@@ -11133,6 +11133,7 @@ ul.list {
   border-bottom: 1px solid #ddd; }
 
 .main-col {
+  width: 100%;
   padding-left: 0px; }
 
 .side-bar {

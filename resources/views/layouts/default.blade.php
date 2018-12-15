@@ -234,9 +234,14 @@ $(document).ready(function(){
                   {left: "\\[", right: "\\]", display: true},
                   {left: "$", right: "$", display: false},
                   {left: "\\(", right: "\\)", display: false}
-              ]
+              ],
+            errorCallback: try_mathjax()
           }
     );
+    function try_mathjax() {
+        console.log("try MathJax");
+        MathJax.Hub.Configured();
+    };
     MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [ ['$','$']],
@@ -245,7 +250,6 @@ $(document).ready(function(){
       },
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
-    MathJax.Hub.Configured();
 });
 </script>
 	</body>

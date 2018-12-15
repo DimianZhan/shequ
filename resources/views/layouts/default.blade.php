@@ -35,6 +35,7 @@ ______                            _              _                              
         <link rel="stylesheet" href="https://cdn.bootcss.com/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
         <script defer src="https://cdn.bootcss.com/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
         <script defer src="https://cdn.bootcss.com/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+        <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured""></script>
         
         <script>
             Config = {
@@ -236,6 +237,15 @@ $(document).ready(function(){
               ]
           }
     );
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$']],
+        displayMath: [ ['$$','$$'] ],
+        processEnvironments: false
+      },
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+    MathJax.Hub.Configured();
 });
 </script>
 	</body>

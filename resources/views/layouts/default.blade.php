@@ -61,6 +61,7 @@ ______                            _              _                              
 
 		<meta http-equiv="x-pjax-version" content="{{ elixir('assets/css/styles.css') }}">
 
+        @if (App::environment() == 'production')
         <script>
         var _hmt = _hmt || [];
         (function() {
@@ -70,6 +71,7 @@ ______                            _              _                              
           s.parentNode.insertBefore(hm, s);
         })();
         </script>
+        @endif
 
 	</head>
 	<body id="body" class="{{ route_class() }}">

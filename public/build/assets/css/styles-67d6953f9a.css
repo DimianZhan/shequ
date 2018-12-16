@@ -6136,7 +6136,7 @@ tbody.collapse.in {
 .container > .navbar-collapse,
 .container-fluid > .navbar-header,
 .container-fluid > .navbar-collapse {
-  margin-right: -15px;
+  margin-right: 0;
   margin-left: -15px; }
   @media (min-width: 768px) {
     .container > .navbar-header,
@@ -6191,7 +6191,7 @@ tbody.collapse.in {
 .navbar-toggle {
   position: relative;
   float: right;
-  margin-right: 15px;
+  margin-right: 3px;
   padding: 9px 10px;
   margin-top: 8px;
   margin-bottom: 8px;

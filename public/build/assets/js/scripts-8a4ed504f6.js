@@ -7441,6 +7441,7 @@ var QRCode;!function(){function t(t){this.mode=l.MODE_8BIT_BYTE,this.data=t,this
                 // Fixing popover persist problem
                 $('.popover').remove();
                 renderMathInElement(document.body);
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
             });
             $(document).on('pjax:complete', function() {
                 original_title = document.title;

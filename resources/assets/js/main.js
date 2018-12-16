@@ -20,6 +20,7 @@
                 // Fixing popover persist problem
                 $('.popover').remove();
                 renderMathInElement(document.body);
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
             });
             $(document).on('pjax:complete', function() {
                 original_title = document.title;

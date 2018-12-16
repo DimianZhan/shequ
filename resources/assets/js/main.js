@@ -4,6 +4,7 @@
     var original_title = document.title;
     var nCount = 0;
 
+    var useMathjax = false;
     var PHPHub = {
         init: function(){
             var self = this;
@@ -16,11 +17,10 @@
             });
             $(document).on('pjax:end', function() {
                 NProgress.done();
+            	useMathjax = false;
                 self.siteBootUp();
                 // Fixing popover persist problem
                 $('.popover').remove();
-                renderMathInElement(document.body);
-                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
             });
             $(document).on('pjax:complete', function() {
                 original_title = document.title;
@@ -77,6 +77,7 @@
             self.initSticky();
             self.initSubmitBtn();
             self.initLostPass();
+            self.initLatex();
         },
 
         initSubmitBtn: function(){
@@ -1035,6 +1036,45 @@
             });
 
             $(".bootstrap-switch").bootstrapSwitch();
+        },
+
+        initLatex: function() {
+            renderMathInElement(
+		        document.body,{
+		            delimiters: [
+		                  {left: "$$", right: "$$", display: true},
+		                  {left: "\\[", right: "\\]", display: true},
+		                  {left: "$", right: "$", display: false},
+		                  {left: "\\(", right: "\\)", display: false}
+		              ],
+		            errorCallback: function errorCallback(msg, err) {
+		                console.error(msg, err);
+		                console.log("try MathJax");
+		                tryMathjax();
+		            }
+		        }
+		    )
+		    function tryMathjax() {
+		    	if (!useMathjax) {
+		    		$.getScript('https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML',function () {
+			            MathJax.Hub.Config({
+				          tex2jax: {
+				            inlineMath: [ ['$','$']],
+				            displayMath: [ ['$$','$$'] ],
+				            processEnvironments: true
+				          },
+				          TeX: { equationNumbers: { autoNumber: "AMS" } }
+				        });
+				        MathJax.Hub.Queue(
+						  ["resetEquationNumbers",MathJax.InputJax.TeX],
+						  ["Typeset",MathJax.Hub]
+						);
+			        });
+			        useMathjax = true;
+		    	}
+		    	
+		    }
+
         },
 
     };

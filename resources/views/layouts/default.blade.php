@@ -35,7 +35,6 @@ ______                            _              _                              
         <link rel="stylesheet" href="https://cdn.bootcss.com/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
         <script defer src="https://cdn.bootcss.com/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
         <script defer src="https://cdn.bootcss.com/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
-        <script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured""></script>
         
         <script>
             Config = {
@@ -227,29 +226,6 @@ $(document).ready(function(){
     // 注意这里的参数
     // apis 使用的参数是 字符串的拼接 这个是和 php 的方法中的处理相对应的
     getjssdkconfig("onMenuShareAppMessage,onMenuShareTimeline,onMenuShareQQ",false,false,shareLinkUlr);
-    renderMathInElement(
-        document.body,{
-            delimiters: [
-                  {left: "$$", right: "$$", display: true},
-                  {left: "\\[", right: "\\]", display: true},
-                  {left: "$", right: "$", display: false},
-                  {left: "\\(", right: "\\)", display: false}
-              ],
-            errorCallback: function errorCallback(msg, err) {
-                console.error(msg, err);
-                console.log("try MathJax");
-                MathJax.Hub.Configured();
-            }
-        }
-    )
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$']],
-        displayMath: [ ['$$','$$'] ],
-        processEnvironments: false
-      },
-      TeX: { equationNumbers: { autoNumber: "AMS" } }
-    });
 });
 </script>
 	</body>
